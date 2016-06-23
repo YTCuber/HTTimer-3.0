@@ -150,16 +150,42 @@
 		}document.write(text);</script>
 	</div>
 	<div class="optionBottomContainer" id="select6" style="visibility:hidden;">
-		<button class="btn-option" onclick="javascript:randomcolor();">Hauptfarbe &auml;ndern</button>
-			<span class="helpmsg" onmouseover="$(this).html('&Auml;ndert die Hauptarbe.')" onmouseout="$(this).html('&nbsp;?&nbsp;')">&nbsp;?&nbsp;</span><br/>
-		<button class="btn-option" onclick="javascript:randomcolor('#99CC29');">Hauptfarbe zur&uuml;cksetzen</button>
-			<span class="helpmsg" onmouseover="$(this).html('Setzt die Hauptfarbe auf den Anfangswert zur&uuml;ck.')" onmouseout="$(this).html('&nbsp;?&nbsp;')">&nbsp;?&nbsp;</span><br/>
-		<script>
+		<button class="btn-option" onclick="javascript:randomcolor();">Hauptfarbe zuf&auml;llig &auml;ndern</button><br/>
+		<button class="btn-option" onclick="javascript:randomcolor('#'+(prompt().replace('#','')));">Hauptfarbe auf RGB-Wert (6stelligen HEX-Wert) setzen</button><br/>
+		<button class="btn-option" onclick="javascript:randomcolor('#99CC29');">Hauptfarbe zur&uuml;cksetzen</button><br/>
+		<script type="text/javascript">
 		function randomcolor(value){
 			if(typeof value=="undefined")value="#"+Math.random().toString(16).slice(2,8);
-			$('#config,#time_liste,#scramble,#scramble_image,#summ,#sessions,.options,.menupnt').css("background-color",value);
+			$('#config,#time_liste,#scramble,#scramble_image,#summ,#tool,#sessions,.options,.menupnt').css("background-color",value);
 		}
 		</script>
+		<h4>Farben f&uuml;r Scramblerbild</h4>
+		<button onclick="colors['W']='#FFFFFF';showOptions();" style="background-color:#FFFFFF;width:80px;color:black;">&nbsp;Wei&szlig;&nbsp;</button>
+		<button onclick="colors['W']='#EEEEEE';showOptions();" style="background-color:#EEEEEE;width:80px;color:black;">&nbsp;Wei&szlig;&nbsp;</button><br/>
+		<button onclick="colors['R']='#FF0000';showOptions();" style="background-color:#FF0000;width:80px;">&nbsp;Rot&nbsp;</button>
+		<button onclick="colors['R']='#CD0000';showOptions();" style="background-color:#CD0000;width:80px;">&nbsp;Rot&nbsp;</button>
+		<button onclick="colors['R']='#8B0000';showOptions();" style="background-color:#8B0000;width:80px;">&nbsp;Rot&nbsp;</button><br/>
+		<button onclick="colors['O']='#FFA500';showOptions();" style="background-color:#FFA500;width:80px;">&nbsp;Orange&nbsp;</button>
+		<button onclick="colors['O']='#FF0000';showOptions();" style="background-color:#FF0000;width:80px;">&nbsp;Orange&nbsp;</button>
+		<button onclick="colors['O']='#FF4500';showOptions();" style="background-color:#FF4500;width:80px;">&nbsp;Orange&nbsp;</button><br/>
+		<button onclick="colors['S']='#000000';showOptions();" style="background-color:#000000;width:80px;">&nbsp;Schwarz&nbsp;</button>
+		<button onclick="colors['S']='#121212';showOptions();" style="background-color:#121212;width:80px;">&nbsp;Schwarz&nbsp;</button><br/>
+		<button onclick="colors['G']='#FFFF00';showOptions();" style="background-color:#FFFF00;width:80px;color:black;">&nbsp;Gelb&nbsp;</button>
+		<button onclick="colors['G']='#FFD800';showOptions();" style="background-color:#FFD800;width:80px;">&nbsp;Gelb&nbsp;</button>
+		<button onclick="colors['G']='#EEEE00';showOptions();" style="background-color:#EEEE00;width:80px;color:black;">&nbsp;Gelb&nbsp;</button><br/>
+		<button onclick="colors['U']='#00FF00';showOptions();" style="background-color:#00FF00;width:80px;">&nbsp;Gr&uuml;n&nbsp;</button>
+		<button onclick="colors['U']='#32CD32';showOptions();" style="background-color:#32CD32;width:80px;">&nbsp;Gr&uuml;n&nbsp;</button>
+		<button onclick="colors['U']='#00CD00';showOptions();" style="background-color:#00CD00;width:80px;">&nbsp;Gr&uuml;n&nbsp;</button><br/>
+		<button onclick="colors['B']='#0000FF';showOptions();" style="background-color:#0000FF;width:80px;">&nbsp;Blau&nbsp;</button>
+		<button onclick="colors['B']='#0000CC';showOptions();" style="background-color:#0000CC;width:80px;">&nbsp;Blau&nbsp;</button>
+		<button onclick="colors['B']='#0000AA';showOptions();" style="background-color:#0000AA;width:80px;">&nbsp;Blau&nbsp;</button><br/>
+		<button onclick="colors['A']='#A0A0A0';showOptions();" style="background-color:#A0A0A0;width:80px;">&nbsp;Grau&nbsp;</button>
+		<button onclick="colors['A']='#C0C0C0';showOptions();" style="background-color:#C0C0C0;width:80px;">&nbsp;Grau&nbsp;</button>
+		<button onclick="colors['A']='#909090';showOptions();" style="background-color:#909090;width:80px;">&nbsp;Grau&nbsp;</button>
+		<button onclick="colors['A']='#808080';showOptions();" style="background-color:#808080;width:80px;">&nbsp;Grau&nbsp;</button><br/>
+		<br/>
+		<br/>
+		<a href="http://www.github.com/YTCuber/HTtimer">Code (Github)</a>
 	</div>
 	<div class="optionBottomContainer" id="select7" style="visibility:hidden;">
 		<button class="btn-option" onclick="javascript:show('summ');">Tool anzeigen</button><br/>
@@ -184,33 +210,6 @@
 		show("select"+currentMenuActive);
 	}
 	</script>
-	<!--<h4>Farben</h4>
-	<button onclick="colors['W']='#FFFFFF';showOptions();" style="background-color:#FFFFFF;width:80px;color:black;">&nbsp;Wei&szlig;&nbsp;</button>
-	<button onclick="colors['W']='#EEEEEE';showOptions();" style="background-color:#EEEEEE;width:80px;color:black;">&nbsp;Wei&szlig;&nbsp;</button><br/>
-	<button onclick="colors['R']='#FF0000';showOptions();" style="background-color:#FF0000;width:80px;">&nbsp;Rot&nbsp;</button>
-	<button onclick="colors['R']='#CD0000';showOptions();" style="background-color:#CD0000;width:80px;">&nbsp;Rot&nbsp;</button>
-	<button onclick="colors['R']='#8B0000';showOptions();" style="background-color:#8B0000;width:80px;">&nbsp;Rot&nbsp;</button><br/>
-	<button onclick="colors['O']='#FFA500';showOptions();" style="background-color:#FFA500;width:80px;">&nbsp;Orange&nbsp;</button>
-	<button onclick="colors['O']='#FF0000';showOptions();" style="background-color:#FF0000;width:80px;">&nbsp;Orange&nbsp;</button>
-	<button onclick="colors['O']='#FF4500';showOptions();" style="background-color:#FF4500;width:80px;">&nbsp;Orange&nbsp;</button><br/>
-	<button onclick="colors['S']='#000000';showOptions();" style="background-color:#000000;width:80px;">&nbsp;Schwarz&nbsp;</button>
-	<button onclick="colors['S']='#121212';showOptions();" style="background-color:#121212;width:80px;">&nbsp;Schwarz&nbsp;</button><br/>
-	<button onclick="colors['G']='#FFFF00';showOptions();" style="background-color:#FFFF00;width:80px;color:black;">&nbsp;Gelb&nbsp;</button>
-	<button onclick="colors['G']='#FFD800';showOptions();" style="background-color:#FFD800;width:80px;">&nbsp;Gelb&nbsp;</button>
-	<button onclick="colors['G']='#EEEE00';showOptions();" style="background-color:#EEEE00;width:80px;color:black;">&nbsp;Gelb&nbsp;</button><br/>
-	<button onclick="colors['U']='#00FF00';showOptions();" style="background-color:#00FF00;width:80px;">&nbsp;Gr&uuml;n&nbsp;</button>
-	<button onclick="colors['U']='#32CD32';showOptions();" style="background-color:#32CD32;width:80px;">&nbsp;Gr&uuml;n&nbsp;</button>
-	<button onclick="colors['U']='#00CD00';showOptions();" style="background-color:#00CD00;width:80px;">&nbsp;Gr&uuml;n&nbsp;</button><br/>
-	<button onclick="colors['B']='#0000FF';showOptions();" style="background-color:#0000FF;width:80px;">&nbsp;Blau&nbsp;</button>
-	<button onclick="colors['B']='#0000CC';showOptions();" style="background-color:#0000CC;width:80px;">&nbsp;Blau&nbsp;</button>
-	<button onclick="colors['B']='#0000AA';showOptions();" style="background-color:#0000AA;width:80px;">&nbsp;Blau&nbsp;</button><br/>
-	<button onclick="colors['A']='#A0A0A0';showOptions();" style="background-color:#A0A0A0;width:80px;">&nbsp;Grau&nbsp;</button>
-	<button onclick="colors['A']='#C0C0C0';showOptions();" style="background-color:#C0C0C0;width:80px;">&nbsp;Grau&nbsp;</button>
-	<button onclick="colors['A']='#909090';showOptions();" style="background-color:#909090;width:80px;">&nbsp;Grau&nbsp;</button>
-	<button onclick="colors['A']='#808080';showOptions();" style="background-color:#808080;width:80px;">&nbsp;Grau&nbsp;</button><br/>
-	<br/>//Farben wurden nicht benötigt-->
-	<!--<br/>
-	<a href="http://www.github.com/dampflok888/HTtimer">Code (Github)</a>-->
 </div>
 <div class="options" style="visibility:hidden" id="start">
 	<div class="right">
@@ -398,7 +397,7 @@
 <div id="sessions"><button onclick="javascript:sessionManager.display();" class="btn btn-lg">Sessionmanager</button></div>
 <div id="scramble" style="overflow:auto;"></div>
 <div id="summ"></div>
-<div id="tool">Scramble unavailable for this scrambler type.</div>
+<div id="tool">Scramble image unavailable for this scrambler type.</div>
 <div id="timeDetails" class="options" style="visibility:hidden"></div>
 <div id="session-manager" class="options" style="visibility:hidden;"></div>
 <div id="virtualtimer">

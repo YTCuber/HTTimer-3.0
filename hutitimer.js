@@ -44,6 +44,49 @@ rotationReducer={
 	}
 }
 
+rotationReducer2={
+	reduce:function(rots){
+		return rotationReducer2.reduce(rots);
+		/*var out,curState,curState2;
+		out="",
+		curState=[0,1,2,3,4,5];//RUFDBL 012345 R0 U1 F2 D3 B4 L5
+		curState2=curState;
+		rots=rots.split(" ");
+		for(let i=0;i<rots.length;i++){
+			//if(rots[i].match(/[xyz]{1}['2]?/)){
+			if(true){
+				let rep=1;
+				if(rots[i][1]=="2")rep=2;
+				if(rots[i][1]=="'")rep=3;
+				for(let j=0;j<rep;j++){
+					if(rots[i][0]=="x"){
+						curState2[1]=curState[2];
+						curState2[2]=curState[3];
+						curState2[3]=curState[4];
+						curState2[4]=curState[1];
+					}else if(rots[i][0]=="y"){
+						curState2[0]=curState[2];
+						curState2[2]=curState[3];
+						curState2[5]=curState[4];
+						curState2[4]=curState[0];
+					}else if(rots[i][0]=="z"){
+						curState2[1]=curState[0];
+						curState2[0]=curState[3];
+						curState2[3]=curState[5];
+						curState2[5]=curState[1];
+					}else{
+						return false;
+					}
+					curState=curState2;
+					curState2=[0,1,2,3,4,5];
+				}
+			}
+		}
+		out=curState;
+		return out;*/
+	}
+}
+
 Array.prototype.max = function() {
   return Math.max.apply(null, this);
 };
@@ -103,6 +146,8 @@ function buildArchitecture(){
 	}
 }
 buildArchitecture();
+
+$(document).ready(function(){setTimeout('timer.scrambleTypes=["1x1","2x2","3x3","4x4","5x5","6x6","7x7","pyra","mega","square-1","skewb","clock","FMC",							"2x2opt","4x4sh","5x5sh","2x2bld","3x3bld","4x4bld","5x5bld","3x3co","3x3hco","3x3ru","3x3ruf","3x3rul","3x3lse","4x4sign","4x4rruu","5x5sign",							"1x2x2","1x2x3","3x3x2","3x3x4","3x3x5","2x2x3","barrel","ghost","3x3co","heli","helij","curvy","curvyj","curvyp","curvypj","curvypfj","mixup3x3","mixup4x4","mpyra","giga","pyracrystal","sq224","dreidellim","square-2","relay"];timer.scrambleNames=["1x1x1","2x2x2","3x3x3","4x4x4","5x5x5","6x6x6","7x7x7","Pyraminx","Megaminx","Square-1","Skewb","Clock","Fewest Moves",							"2x2x2 kurz","4x4x4 kurz","5x5x5 kurz","2x2x2 Blind","3x3x3 Blind","4x4x4 Blind","5x5x5 Blind","3x3x3 Center Orientation","3x3x3 half center orientation","3x3x3 &lt;RU&gt;","3x3x3 &lt;RUF&gt;","3x3x3 &lt;RUL&gt;","3x3x3 LSE","4x4x4 SiGN","4x4x4 &lt;RrUu&gt;","5x5x5 SiGN","1x2x2","1x2x3","3x3x2","3x3x4","3x3x5","2x2x3","Barrel Cube","Ghost Cube","Fisher Cube","Helicopter Cube","Jumbled Helicopter Cube","Curvy Copter","Jumbled Curvy Copter","Curvy Copter Plus","Jumbled Curvy Copter Plus","Fully Jumbled Curvy Copter Plus","Mixup 3x3","Mixup 4x4","Master Pyraminx","Gigaminx","Pyraminx Crystal","Square 2x2x4","Dreidel LimCube","Square-2","Relays"];displayScrambler();',200);});
 
 function start(){
 	if(!timer.running){
